@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "createutilities:void_casing",
+    "createutilities:void_motor",
+    "createutilities:void_chest",
+    "createutilities:gearcube"
+  ]
+}

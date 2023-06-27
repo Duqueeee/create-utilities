@@ -1,30 +1,34 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "createutilities",
   "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Create Utilities",
+  "description": "Adds extra utilities to the Create Mod",
   "authors": [
-    "Me!"
+    "Duquee_"
   ],
   "contact": {
-    "sources": "https://github.com/Fabricators-of-Create/create-fabric-addon-template"
+    "sources": "https://github.com/Duqueeee/create-utilities"
   },
   "license": "CC0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/createutilities/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.modid.ExampleMod"
+      "me.duquee.createutilities.CreateUtilities"
+    ],
+    "client": [
+      "me.duquee.createutilities.CreateUtilitiesClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "createutilities.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
     "fabric-api": ">=${fabric_api_version}",
     "create": "${create_version}",
     "minecraft": "${minecraft_version}"
-  }
+  },
+  "accessWidener" : "createutilities.accesswidener"
 }

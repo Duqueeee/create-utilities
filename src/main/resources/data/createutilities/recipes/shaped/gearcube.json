@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "create:cogwheel"
+    },
+    "Y": {
+      "item": "create:andesite_casing"
+    }
+  },
+  "pattern": [
+    "XX ",
+    "XYX",
+    " XX"
+  ],
+  "result": {
+    "item": "createutilities:gearcube"
+  }
+}
