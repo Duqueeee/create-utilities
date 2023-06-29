@@ -14,14 +14,14 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
 public class VoidChestRenderer extends VoidTileEntityRenderer<VoidChestTileEntity> {
 
-	public VoidChestRenderer(BlockEntityRendererProvider.Context context,
-							 float width, Function<Direction, Float> offSet, BiFunction<VoidChestTileEntity, Direction, Boolean> shouldRenderFrame) {
-		super(context, width, offSet, shouldRenderFrame);
+	public VoidChestRenderer(BlockEntityRendererProvider.Context context) {
+		super(context,
+				.625F,
+				direction -> .626F,
+				(te, direction) -> direction == Direction.UP && !te.isClosed()
+		);
 	}
 
 	@Override

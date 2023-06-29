@@ -10,13 +10,13 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
 public class VoidTankRenderer extends VoidTileEntityRenderer<VoidTankTileEntity> {
 
-	public VoidTankRenderer(BlockEntityRendererProvider.Context context, float width, Function<Direction, Float> offSet, BiFunction<VoidTankTileEntity, Direction, Boolean> shouldRenderFrame) {
-		super(context, width, offSet, shouldRenderFrame);
+	public VoidTankRenderer(BlockEntityRendererProvider.Context context) {
+		super(context,
+				.75F,
+				direction -> direction.getAxis() == Direction.Axis.Y ? .251F : .124F,
+				(te, direction) -> !te.isClosed());
 	}
 
 	@Override
