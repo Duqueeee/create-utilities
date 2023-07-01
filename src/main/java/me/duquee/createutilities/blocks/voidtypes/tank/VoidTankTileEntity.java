@@ -8,6 +8,7 @@ import com.simibubi.create.foundation.utility.VecHelper;
 
 import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
 import me.duquee.createutilities.CreateUtilities;
+import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.voidtypes.VoidLinkBehaviour;
 import me.duquee.createutilities.voidlink.VoidLinkSlot;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
@@ -46,14 +47,11 @@ public class VoidTankTileEntity extends SmartBlockEntity implements SidedStorage
 		link = new VoidLinkBehaviour(this, slots);
 	}
 
-	private VoidTanksData getPersistentData() {
-		return CreateUtilities.VOID_TANKS_DATA;
-	}
-
 	@Override
 	public @Nullable FluidTank getFluidStorage(Direction side) {
-		return level != null && !level.isClientSide ? getPersistentData().computeStorageIfAbsent(link.getNetworkKey()) :
-				getPersistentData().computeClientTankIfAbsent(link.getNetworkKey());
+		return level != null && !level.isClientSide ?
+				CreateUtilities.VOID_TANKS_DATA.computeStorageIfAbsent(link.getNetworkKey()) :
+				CreateUtilitiesClient.VOID_TANKS.computeClientTankIfAbsent(link.getNetworkKey());
 	}
 
 	public FluidTank getFluidStorage() {

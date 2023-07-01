@@ -6,6 +6,7 @@ import com.tterrag.registrate.fabric.EnvExecutor;
 
 import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
 import me.duquee.createutilities.CreateUtilities;
+import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
 import net.fabricmc.api.EnvType;
@@ -36,7 +37,7 @@ public class VoidTankUpdatePacket extends SimplePacketBase {
 	@Override
 	public boolean handle(Context context) {
 		context.enqueueWork(() -> EnvExecutor.runWhenOn(EnvType.CLIENT, () -> () ->
-			CreateUtilities.VOID_TANKS_DATA.clientTanks.put(key, tank)
+			CreateUtilitiesClient.VOID_TANKS.clientTanks.put(key, tank)
 		));
 		return true;
 	}
