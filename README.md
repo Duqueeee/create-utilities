@@ -6,3 +6,8 @@ Create Utilities is a Create Addon designed to enhance your gameplay with conven
 **CurseForge**: https://www.curseforge.com/minecraft/mc-mods/create-utilities-fabric
 
 **Modrinth**: https://modrinth.com/mod/create-utilities
+
+## Join our discord server!
+<a href="https://discord.gg/TbEHCGu3kp">
+<img src="https://discordapp.com/api/guilds/1124104201287504004/embed.png?style=banner2&amp;v=2">
+</a>
