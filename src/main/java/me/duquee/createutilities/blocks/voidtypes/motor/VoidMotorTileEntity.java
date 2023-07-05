@@ -46,7 +46,7 @@ public class VoidMotorTileEntity extends KineticBlockEntity {
 
 	public void onDisconnectFromVoidNetwork() {
 		detachKinetics();
-		setSpeed(0);
+		removeSource();
 	}
 
 	@Override
