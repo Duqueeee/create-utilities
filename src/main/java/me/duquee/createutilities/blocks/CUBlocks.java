@@ -61,6 +61,8 @@ public class CUBlocks {
 	public static final BlockEntry<VoidTankBlock> VOID_TANK = REGISTRATE.block("void_tank", VoidTankBlock::new)
 			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
+			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
+			.properties(p -> p.strength(30F, 600.0F))
 			.properties(p -> p.isRedstoneConductor((p1, p2, p3) -> true))
 			.transform(pickaxeOnly())
 			.addLayer(() -> RenderType::cutoutMipped)
