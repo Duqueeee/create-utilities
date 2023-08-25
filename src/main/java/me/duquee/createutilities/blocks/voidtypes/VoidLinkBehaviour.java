@@ -8,8 +8,6 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;
 
-import com.simibubi.create.foundation.blockEntity.behaviour.filtering.FilteringBehaviour;
-
 import com.simibubi.create.foundation.utility.AdventureUtil;
 
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
