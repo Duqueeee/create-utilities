@@ -14,7 +14,7 @@ public class VoidChestInventoriesData extends VoidStorageData<VoidChestInventory
 
 	@Override
 	public @NotNull CompoundTag save(@NotNull CompoundTag tag) {
-		return super.save(tag, VoidChestInventory::isEmpty, VoidChestInventory::serializeNBT);
+		return super.save(tag, VoidChestInventory::empty, VoidChestInventory::serializeNBT);
 	}
 
 	public static VoidChestInventoriesData load(CompoundTag tag) {

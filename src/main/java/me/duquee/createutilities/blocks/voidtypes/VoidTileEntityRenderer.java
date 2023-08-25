@@ -2,7 +2,6 @@ package me.duquee.createutilities.blocks.voidtypes;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Matrix4f;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 
@@ -14,6 +13,8 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
+
+import org.joml.Matrix4f;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -50,19 +51,19 @@ public class VoidTileEntityRenderer<T extends SmartBlockEntity> extends SafeBloc
 
 			float offSetValue = offSet.apply(direction);
 			switch (direction) {
-				case DOWN -> renderFrame(te, pose, consumer, x, z, 1 - offSetValue, 1 - offSetValue, x, x, z, z);
-				case UP -> renderFrame(te, pose, consumer, x, z, offSetValue, offSetValue, z, z, x, x);
-				case NORTH -> renderFrame(te, pose, consumer, x, z, z, x, 1 - offSetValue, 1 - offSetValue, 1 - offSetValue, 1 - offSetValue);
-				case SOUTH -> renderFrame(te, pose, consumer, x, z, x, z, offSetValue, offSetValue, offSetValue, offSetValue);
-				case WEST -> renderFrame(te, pose, consumer, 1 - offSetValue, 1 - offSetValue, x, z, x, z, z, x);
-				case EAST -> renderFrame(te, pose, consumer, offSetValue, offSetValue, z, x, x, z, z, x);
+				case DOWN -> renderFrame(pose, consumer, x, z, 1 - offSetValue, 1 - offSetValue, x, x, z, z);
+				case UP -> renderFrame(pose, consumer, x, z, offSetValue, offSetValue, z, z, x, x);
+				case NORTH -> renderFrame(pose, consumer, x, z, z, x, 1 - offSetValue, 1 - offSetValue, 1 - offSetValue, 1 - offSetValue);
+				case SOUTH -> renderFrame(pose, consumer, x, z, x, z, offSetValue, offSetValue, offSetValue, offSetValue);
+				case WEST -> renderFrame(pose, consumer, 1 - offSetValue, 1 - offSetValue, x, z, x, z, z, x);
+				case EAST -> renderFrame(pose, consumer, offSetValue, offSetValue, z, x, x, z, z, x);
 			}
 
 		}
 
 	}
 
-	private void renderFrame(T te, Matrix4f pose, VertexConsumer consumer,
+	private void renderFrame(Matrix4f pose, VertexConsumer consumer,
 							 float x0, float x1, float y0, float y1, float z0, float z1, float z2, float z3) {
 		consumer.vertex(pose, x0, y0, z0).endVertex();
 		consumer.vertex(pose, x1, y0, z1).endVertex();

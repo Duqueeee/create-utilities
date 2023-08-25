@@ -11,11 +11,12 @@ import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorBlock;
 import me.duquee.createutilities.blocks.gearcube.GearcubeBlock;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTankBlock;
 import me.duquee.createutilities.tabs.CUCreativeTabs;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
@@ -24,13 +25,9 @@ import static me.duquee.createutilities.CreateUtilities.REGISTRATE;
 
 public class CUBlocks {
 
-	static {
-		REGISTRATE.creativeModeTab(() -> CUCreativeTabs.BASE);
-	}
-
 	public static final BlockEntry<CasingBlock> VOID_CASING = REGISTRATE.block("void_casing", CasingBlock::new)
 			.transform(BuilderTransformers.casing(() -> CUSpriteShifts.VOID_CASING))
-			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
+			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
 			.properties(p -> p.strength(55.0F, 1200.0F))
 			.properties(p -> p.sound(SoundType.NETHERITE_BLOCK))
 			.transform(pickaxeOnly())
@@ -38,7 +35,7 @@ public class CUBlocks {
 
 	public static final BlockEntry<VoidMotorBlock> VOID_MOTOR = REGISTRATE.block("void_motor", VoidMotorBlock::new)
 			.initialProperties(SharedProperties::stone)
-			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
+			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
 			.properties(p -> p.strength(30F, 600.0F))
 			.transform(pickaxeOnly())
 			.transform(BlockStressDefaults.setNoImpact())
@@ -50,7 +47,7 @@ public class CUBlocks {
 	public static final BlockEntry<VoidChestBlock> VOID_CHEST = REGISTRATE.block("void_chest", VoidChestBlock::new)
 			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
-			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
+			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
 			.properties(p -> p.strength(30F, 600.0F))
 			.transform(pickaxeOnly())
 			.item()
@@ -61,7 +58,7 @@ public class CUBlocks {
 	public static final BlockEntry<VoidTankBlock> VOID_TANK = REGISTRATE.block("void_tank", VoidTankBlock::new)
 			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
-			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
+			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
 			.properties(p -> p.strength(30F, 600.0F))
 			.properties(p -> p.isRedstoneConductor((p1, p2, p3) -> true))
 			.transform(pickaxeOnly())
@@ -74,11 +71,21 @@ public class CUBlocks {
 	public static final BlockEntry<GearcubeBlock> GEARCUBE = REGISTRATE.block("gearcube", GearcubeBlock::new)
 			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
-			.properties(p -> p.color(MaterialColor.PODZOL))
+			.properties(p -> p.mapColor(MapColor.PODZOL))
 			.transform(BlockStressDefaults.setNoImpact())
 			.transform(axeOrPickaxe())
 			.simpleItem()
 			.register();
+
+	static {
+		ItemGroupEvents.modifyEntriesEvent(CUCreativeTabs.BASE.key()).register(content -> {
+			content.accept(VOID_CASING);
+			content.accept(VOID_MOTOR);
+			content.accept(VOID_CHEST);
+			content.accept(VOID_TANK);
+			content.accept(GEARCUBE);
+		});
+	}
 
 	public static void register() {}
 

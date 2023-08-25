@@ -80,7 +80,7 @@ public class VoidLinkBehaviour extends BlockEntityBehaviour {
 		stack = stack.copy();
 		stack.setCount(1);
 		ItemStack toCompare = getFrequencyStack(first);
-		boolean changed = !ItemStack.isSame(stack, toCompare) || !ItemStack.tagMatches(stack, toCompare);
+		boolean changed = !ItemStack.isSameItemSameTags(stack, toCompare);
 
 		if (changed) onLeaveNetwork();
 

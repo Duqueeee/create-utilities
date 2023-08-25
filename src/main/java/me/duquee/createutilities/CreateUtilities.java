@@ -11,6 +11,7 @@ import me.duquee.createutilities.events.CommonEvents;
 import me.duquee.createutilities.items.CUItems;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler;
 import me.duquee.createutilities.networking.CUPackets;
+import me.duquee.createutilities.tabs.CUCreativeTabs;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.ResourceLocation;
@@ -40,6 +41,7 @@ public class CreateUtilities implements ModInitializer {
 
 		REGISTRATE.register();
 
+		CUCreativeTabs.register();
 		CommonEvents.register();
 		CUPackets.registerPackets();
 		CUPackets.channel.initServerListener();

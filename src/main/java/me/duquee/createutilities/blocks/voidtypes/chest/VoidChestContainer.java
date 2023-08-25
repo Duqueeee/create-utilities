@@ -16,6 +16,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
+import org.jetbrains.annotations.NotNull;
+
 public class VoidChestContainer extends MenuBase<VoidChestTileEntity> {
 
 
@@ -70,12 +72,12 @@ public class VoidChestContainer extends MenuBase<VoidChestTileEntity> {
 	protected void saveData(VoidChestTileEntity contentHolder) {}
 
 	@Override
-	public ItemStack quickMoveStack(Player player, int index) {
+	public @NotNull ItemStack quickMoveStack(@NotNull Player player, int index) {
 		Slot clickedSlot = getSlot(index);
 		if (!clickedSlot.hasItem()) return ItemStack.EMPTY;
 
 		ItemStack stack = clickedSlot.getItem();
-		int size = contentHolder.getItemStorage().getSlots();
+		int size = contentHolder.getItemStorage().getSlotCount();
 		boolean success;
 		if (index < size) {
 			success = !moveItemStackTo(stack, size, slots.size(), false);
@@ -88,6 +90,6 @@ public class VoidChestContainer extends MenuBase<VoidChestTileEntity> {
 	@Override
 	public void removed(Player player) {
 		super.removed(player);
-		if (!player.level.isClientSide) contentHolder.stopOpen(player);
+		if (!player.level().isClientSide) contentHolder.stopOpen(player);
 	}
 }
