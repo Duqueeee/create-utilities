@@ -10,6 +10,8 @@ import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;
 
 import com.simibubi.create.foundation.blockEntity.behaviour.filtering.FilteringBehaviour;
 
+import com.simibubi.create.foundation.utility.AdventureUtil;
+
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import me.duquee.createutilities.voidlink.VoidLinkSlot;
 import net.minecraft.nbt.CompoundTag;
@@ -112,7 +114,7 @@ public class VoidLinkBehaviour extends BlockEntityBehaviour {
 	}
 
 	public boolean canInteract(Player player) {
-		return FilteringBehaviour.playerCanInteract(player) && isOwner(player);
+		return !AdventureUtil.isAdventure(player) && isOwner(player);
 	}
 
 	@Nullable
