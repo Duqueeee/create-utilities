@@ -1,11 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8.2",
-  "package": "com.rabbitminers.addontemplate.mixin",
+  "package": "me.duquee.createutilities.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ContraptionInvWrapperMixin",
+    "MountedStorageMixin"
   ],
   "client": [
-    "MixinDemo"
   ]
 }
