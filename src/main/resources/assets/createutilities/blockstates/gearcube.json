@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "createutilities:block/gearcube/block"
+    }
+  }
+}
