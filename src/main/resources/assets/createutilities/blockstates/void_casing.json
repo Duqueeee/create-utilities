@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "createutilities:block/void_casing"
+    }
+  }
+}

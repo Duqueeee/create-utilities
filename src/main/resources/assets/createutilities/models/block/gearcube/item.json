@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"1": "create:block/gearbox",
+		"particle": "create:block/axis",
+		"1_0": "create:block/axis",
+		"1_1": "create:block/axis_top"
+	},
+	"elements": [
+		{
+			"name": "Core",
+			"from": [1, 1, 1],
+			"to": [15, 15, 15],
+			"faces": {
+				"north": {"uv": [1, 1, 15, 15], "texture": "#1"},
+				"east": {"uv": [1, 1, 15, 15], "texture": "#1"},
+				"south": {"uv": [1, 1, 15, 15], "texture": "#1"},
+				"west": {"uv": [1, 1, 15, 15], "texture": "#1"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#1"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Axis",
+			"from": [6, 6, 0],
+			"to": [10, 10, 16],
+			"faces": {
+				"north": {"uv": [6, 6, 10, 10], "rotation": 180, "texture": "#1_1"},
+				"east": {"uv": [6, 0, 10, 16], "rotation": 90, "texture": "#1_0"},
+				"south": {"uv": [6, 6, 10, 10], "texture": "#1_1"},
+				"west": {"uv": [6, 0, 10, 16], "rotation": 270, "texture": "#1_0"},
+				"up": {"uv": [6, 0, 10, 16], "texture": "#1_0"},
+				"down": {"uv": [6, 0, 10, 16], "rotation": 180, "texture": "#1_0"}
+			}
+		},
+		{
+			"name": "Axis",
+			"from": [6, 0, 6],
+			"to": [10, 16, 10],
+			"faces": {
+				"north": {"uv": [6, 0, 10, 16], "texture": "#1_0"},
+				"east": {"uv": [6, 0, 10, 16], "texture": "#1_0"},
+				"south": {"uv": [6, 0, 10, 16], "texture": "#1_0"},
+				"west": {"uv": [6, 0, 10, 16], "texture": "#1_0"},
+				"up": {"uv": [6, 6, 10, 10], "texture": "#1_1"},
+				"down": {"uv": [6, 6, 10, 10], "texture": "#1_1"}
+			}
+		},
+		{
+			"name": "Axis",
+			"from": [0, 6, 6],
+			"to": [16, 10, 10],
+			"faces": {
+				"north": {"uv": [6, 0, 10, 16], "rotation": 90, "texture": "#1_0"},
+				"east": {"uv": [6, 6, 10, 10], "rotation": 270, "texture": "#1_1"},
+				"south": {"uv": [6, 0, 10, 16], "rotation": 270, "texture": "#1_0"},
+				"west": {"uv": [6, 6, 10, 10], "rotation": 270, "texture": "#1_1"},
+				"up": {"uv": [6, 0, 10, 16], "rotation": 270, "texture": "#1_0"},
+				"down": {"uv": [6, 0, 10, 16], "rotation": 270, "texture": "#1_0"}
+			}
+		}
+	],
+	"groups": [
+		0,
+		{
+			"name": "shaft",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"nbt": "{}",
+			"children": [1]
+		},
+		{
+			"name": "shaft",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"nbt": "{}",
+			"children": [2]
+		},
+		{
+			"name": "shaft",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"nbt": "{}",
+			"children": [3]
+		}
+	]
+}

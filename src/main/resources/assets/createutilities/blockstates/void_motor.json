@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "createutilities:block/void_motor/block_vertical",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "createutilities:block/void_motor/block_vertical"
+    },
+    "facing=north": {
+      "model": "createutilities:block/void_motor/block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "createutilities:block/void_motor/block"
+    },
+    "facing=west": {
+      "model": "createutilities:block/void_motor/block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "createutilities:block/void_motor/block",
+      "y": 270
+    }
+  }
+}

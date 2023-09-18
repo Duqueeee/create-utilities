@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "closed=false": {
+      "model": "createutilities:block/void_tank/block_window"
+    },
+    "closed=true": {
+      "model": "createutilities:block/void_tank/block_plain"
+    }
+  }
+}
