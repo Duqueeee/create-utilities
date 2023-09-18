@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "createutilities:void_steel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "createutilities:void_steel_sheet"
+    }
+  ]
+}
