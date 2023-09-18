@@ -29,8 +29,6 @@ public class VoidTankTileEntity extends SmartBlockEntity {
 
 	VoidLinkBehaviour link;
 
-	LazyOptional<IFluidHandler> fluidProvider = LazyOptional.of(this::getFluidStorage);
-
 	public VoidTankTileEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		super(type, pos, state);
 	}
@@ -60,7 +58,7 @@ public class VoidTankTileEntity extends SmartBlockEntity {
 	@Override
 	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
 		if (cap == ForgeCapabilities.FLUID_HANDLER) {
-			return fluidProvider.cast();
+			return LazyOptional.of(this::getFluidStorage).cast();
 		}
 		return super.getCapability(cap, side);
 	}
