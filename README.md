@@ -3,7 +3,7 @@ Create Utilities is a Create Addon designed to enhance your gameplay with conven
 
 
 ## Download
-**CurseForge**: https://www.curseforge.com/minecraft/mc-mods/create-utilities-fabric
+**CurseForge**: https://www.curseforge.com/minecraft/mc-mods/createutilities
 
 **Modrinth**: https://modrinth.com/mod/create-utilities
 
