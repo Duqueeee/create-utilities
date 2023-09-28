@@ -24,7 +24,7 @@ import static me.duquee.createutilities.CreateUtilities.REGISTRATE;
 public class CUBlocks {
 
 	static {
-		REGISTRATE.useCreativeTab(CUCreativeTabs.BASE);
+		REGISTRATE.setCreativeTab(CUCreativeTabs.BASE);
 	}
 
 	public static final BlockEntry<CasingBlock> VOID_CASING = REGISTRATE.block("void_casing", CasingBlock::new)

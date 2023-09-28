@@ -10,7 +10,7 @@ import static me.duquee.createutilities.CreateUtilities.REGISTRATE;
 public class CUItems {
 
 	static {
-		REGISTRATE.useCreativeTab(CUCreativeTabs.BASE);
+		REGISTRATE.setCreativeTab(CUCreativeTabs.BASE);
 	}
 
 	public static final ItemEntry<Item>
