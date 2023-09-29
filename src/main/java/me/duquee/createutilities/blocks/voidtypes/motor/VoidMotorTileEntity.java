@@ -59,7 +59,7 @@ public class VoidMotorTileEntity extends KineticBlockEntity {
 	public float propagateRotationTo(KineticBlockEntity target, BlockState stateFrom, BlockState stateTo, BlockPos diff, boolean connectedViaAxes, boolean connectedViaCogs) {
 		VoidMotorLinkBehaviour targetLink = (VoidMotorLinkBehaviour) BlockEntityBehaviour.get(target, VoidMotorLinkBehaviour.TYPE);
 		if (targetLink != null) return targetLink.getNetworkKey().equals(link.getNetworkKey()) ? 1 : 0;
-		return 1;
+		return 0;
 	}
 
 	@Override
