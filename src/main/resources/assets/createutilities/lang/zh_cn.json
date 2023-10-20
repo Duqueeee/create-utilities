@@ -1,0 +1,18 @@
+{
+  "itemGroup.createutilities.base": "Create Utilities",
+
+  "block.createutilities.gearcube": "齿轮立方",
+  "block.createutilities.void_motor": "虚空马达",
+  "block.createutilities.void_chest": "虚空箱子",
+  "block.createutilities.void_tank": "虚空储罐",
+  "block.createutilities.void_casing": "虚空机壳",
+
+  "item.createutilities.void_steel_ingot": "虚空钢锭",
+  "item.createutilities.void_steel_sheet": "虚空钢板",
+  "item.createutilities.graviton_tube": "引力管",
+  "item.createutilities.polished_amethyst": "磨制紫水晶",
+
+  "createutilities.logistics.owner": "所有者",
+  "createutilities.logistics.void.click_to_set_owner": "点击设为私有",
+  "createutilities.logistics.void.click_to_remove_owner": "点击放弃所有权"
+}
