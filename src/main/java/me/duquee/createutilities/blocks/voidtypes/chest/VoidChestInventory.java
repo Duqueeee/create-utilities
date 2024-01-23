@@ -3,11 +3,15 @@ package me.duquee.createutilities.blocks.voidtypes.chest;
 import me.duquee.createutilities.CreateUtilities;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
+import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 
 public class VoidChestInventory extends ItemStackHandler {
 
-	public VoidChestInventory() {
+	private final NetworkKey key;
+
+	public VoidChestInventory(NetworkKey key) {
 		super(27);
+		this.key = key;
 	}
 
 	@Override
@@ -17,6 +21,10 @@ public class VoidChestInventory extends ItemStackHandler {
 
 	public boolean isEmpty() {
 		return stacks.stream().allMatch(ItemStack::isEmpty);
+	}
+
+	public NetworkKey getKey() {
+		return key;
 	}
 
 }
