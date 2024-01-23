@@ -110,8 +110,7 @@ public class VoidMotorNetworkHandler {
 			return Objects.equals(owner, other.owner) && frequencies.equals(other.frequencies);
 		}
 
-		@Override
-		public String toString() {
+		public CompoundTag serialize() {
 			CompoundTag tag = new CompoundTag();
 			if (owner != null) {
 				CompoundTag tag_ = new CompoundTag();
@@ -120,7 +119,19 @@ public class VoidMotorNetworkHandler {
 			}
 			tag.put("FrequencyFirst", frequencies.get(true).getStack().save(new CompoundTag()));
 			tag.put("FrequencyLast", frequencies.get(false).getStack().save(new CompoundTag()));
-			return tag.toString();
+			return tag;
+		}
+
+		public static NetworkKey deserialize(CompoundTag tag) {
+			Frequency frequencyFirst = Frequency.of(ItemStack.of(tag.getCompound("FrequencyFirst")));
+			Frequency frequencyLast = Frequency.of(ItemStack.of(tag.getCompound("FrequencyLast")));
+			GameProfile owner = tag.contains("Owner", 10) ? NbtUtils.readGameProfile(tag.getCompound("Owner")) : null;
+			return new NetworkKey(owner, frequencyFirst, frequencyLast);
+		}
+
+		@Override
+		public String toString() {
+			return serialize().toString();
 		}
 
 		public static NetworkKey fromString(String json) {
@@ -133,11 +144,7 @@ public class VoidMotorNetworkHandler {
 				return null;
 			}
 
-			Frequency frequencyFirst = Frequency.of(ItemStack.of(tag.getCompound("FrequencyFirst")));
-			Frequency frequencyLast = Frequency.of(ItemStack.of(tag.getCompound("FrequencyLast")));
-			GameProfile owner = tag.contains("Owner", 10) ? NbtUtils.readGameProfile(tag.getCompound("Owner")) : null;
-
-			return new NetworkKey(owner, frequencyFirst, frequencyLast);
+			return deserialize(tag);
 		}
 
 	}

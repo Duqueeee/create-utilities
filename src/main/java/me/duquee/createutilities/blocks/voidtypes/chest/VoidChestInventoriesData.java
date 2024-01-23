@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class VoidChestInventoriesData extends VoidStorageData<VoidChestInventory> {
 
 	public VoidChestInventory computeStorageIfAbsent(NetworkKey key) {
-		return super.computeStorageIfAbsent(key, k -> new VoidChestInventory());
+		return super.computeStorageIfAbsent(key, VoidChestInventory::new);
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class VoidChestInventoriesData extends VoidStorageData<VoidChestInventory
 	}
 
 	public static VoidChestInventoriesData load(CompoundTag tag) {
-		return load(tag, VoidChestInventoriesData::new, key -> new VoidChestInventory(), VoidChestInventory::deserializeNBT);
+		return load(tag, VoidChestInventoriesData::new, VoidChestInventory::new, VoidChestInventory::deserializeNBT);
 	}
 
 }
