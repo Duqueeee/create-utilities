@@ -83,7 +83,7 @@ public class VoidChestTileEntity extends SmartBlockEntity implements MenuProvide
 	@Override
 	protected void read(CompoundTag tag, boolean clientPacket) {
 		if (clientPacket) {
-			inventory = new VoidChestInventory();
+			inventory = new VoidChestInventory(link.getNetworkKey());
 			inventory.deserializeNBT(tag.getCompound("Inventory"));
 			openCount = tag.getInt("OpenCount");
 		}

@@ -1,5 +1,6 @@
 package me.duquee.createutilities.blocks.voidtypes.tank;
 
+import me.duquee.createutilities.blocks.voidtypes.VoidStorageData;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import net.minecraft.nbt.CompoundTag;
 
@@ -9,32 +10,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VoidTanksData extends SavedData {
-
-	protected final Map<NetworkKey, VoidTank> storages = new HashMap<>();
+public class VoidTanksData extends VoidStorageData<VoidTank> {
 
 	public VoidTank computeStorageIfAbsent(NetworkKey key) {
-		return storages.computeIfAbsent(key, VoidTank::new);
+		return super.computeStorageIfAbsent(key, VoidTank::new);
 	}
 
 	@Override
 	public @NotNull CompoundTag save(@NotNull CompoundTag tag) {
-		storages.forEach( (key, tank) -> {
-			if (!tank.isEmpty())
-				tag.put(key.toString(), tank.writeToNBT(new CompoundTag()));
-		} );
-		return tag;
+		return super.save(tag, VoidTank::isEmpty, tank -> tank.writeToNBT(new CompoundTag()));
 	}
 
 	public static VoidTanksData load(CompoundTag tag) {
-		VoidTanksData data = new VoidTanksData();
-		tag.getAllKeys().forEach(k -> {
-			NetworkKey key = NetworkKey.fromString(k);
-			VoidTank tank = new VoidTank(key);
-			tank.readFromNBT(tag.getCompound(k));
-			data.storages.put(key, tank);
-		});
-		return data;
+		return load(tag, VoidTanksData::new, VoidTank::new, VoidTank::readFromNBT);
 	}
 
 }
