@@ -2,7 +2,6 @@ package me.duquee.createutilities.blocks.voidtypes.motor;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.simibubi.create.Create;
 import com.simibubi.create.content.redstone.link.RedstoneLinkNetworkHandler.Frequency;
 import com.simibubi.create.foundation.utility.Couple;
 
@@ -41,7 +40,7 @@ public class VoidMotorNetworkHandler {
 
 	public Map<NetworkKey, Set<BlockPos>> networksIn(LevelAccessor world) {
 		if (!connections.containsKey(world)) {
-			Create.LOGGER.warn("Tried to Access unprepared network space of " + WorldHelper.getDimensionID(world));
+			CreateUtilities.LOGGER.warn("Tried to Access unprepared network space of " + WorldHelper.getDimensionID(world));
 			return new HashMap<>();
 		}
 		return connections.get(world);
@@ -49,12 +48,12 @@ public class VoidMotorNetworkHandler {
 
 	public void onLoadWorld(LevelAccessor world) {
 		connections.put(world, new HashMap<>());
-		Create.LOGGER.debug("Prepared Void Motor Network Space for " + WorldHelper.getDimensionID(world));
+		CreateUtilities.LOGGER.debug("Prepared Void Motor Network Space for " + WorldHelper.getDimensionID(world));
 	}
 
 	public void onUnloadWorld(LevelAccessor world) {
 		connections.remove(world);
-		Create.LOGGER.debug("Removed Void Motor Network Space for " + WorldHelper.getDimensionID(world));
+		CreateUtilities.LOGGER.debug("Removed Void Motor Network Space for " + WorldHelper.getDimensionID(world));
 	}
 
 	public void addToNetwork(LevelAccessor world, VoidMotorLinkBehaviour actor) {

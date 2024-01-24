@@ -45,12 +45,13 @@ public class VoidMotorTileEntity extends KineticBlockEntity {
 
 	public void onDisconnectFromVoidNetwork() {
 		detachKinetics();
-		removeSource();
+		if (hasSource() && level.isLoaded(source))
+			removeSource();
 	}
 
 	@Override
 	public List<BlockPos> addPropagationLocations(IRotate block, BlockState state, List<BlockPos> neighbours) {
-		neighbours.addAll(link.getNetwork());
+		neighbours.addAll(link.getNetwork().stream().filter(pos -> pos != getBlockPos()).toList());
 		return neighbours;
 	}
 
