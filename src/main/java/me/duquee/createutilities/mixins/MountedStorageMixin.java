@@ -2,7 +2,6 @@ package me.duquee.createutilities.mixins;
 
 import com.simibubi.create.content.contraptions.MountedStorage;
 
-import com.simibubi.create.content.logistics.crate.BottomlessItemHandler;
 import com.simibubi.create.foundation.utility.NBTHelper;
 
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
@@ -11,7 +10,6 @@ import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestInventory;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 import org.spongepowered.asm.mixin.Mixin;
