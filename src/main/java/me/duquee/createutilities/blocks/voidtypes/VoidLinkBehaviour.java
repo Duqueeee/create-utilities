@@ -1,14 +1,16 @@
 package me.duquee.createutilities.blocks.voidtypes;
 
 import com.mojang.authlib.GameProfile;
-
+import com.simibubi.create.content.equipment.clipboard.ClipboardCloneable;
 import com.simibubi.create.content.redstone.link.RedstoneLinkNetworkHandler.Frequency;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;
+import com.simibubi.create.foundation.utility.NBTHelper;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
 import me.duquee.createutilities.voidlink.VoidLinkSlot;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.world.entity.player.Player;
@@ -22,7 +24,7 @@ import javax.annotation.Nullable;
 
 import java.util.Objects;
 
-public class VoidLinkBehaviour extends BlockEntityBehaviour {
+public class VoidLinkBehaviour extends BlockEntityBehaviour implements ClipboardCloneable {
 
 	public static final BehaviourType<VoidLinkBehaviour> TYPE = new BehaviourType<>();
 
@@ -142,4 +144,29 @@ public class VoidLinkBehaviour extends BlockEntityBehaviour {
 		return TYPE;
 	}
 
+	@Override
+	public String getClipboardKey() {
+		return "Frequencies";
+	}
+
+	@Override
+	public boolean writeToClipboard(CompoundTag nbt, Direction side) {
+		nbt.put("First", frequencyFirst.getStack().save(new CompoundTag()));
+		nbt.put("Last", frequencyLast.getStack().save(new CompoundTag()));
+		if (owner != null) NBTHelper.putMarker(nbt, "Owned");
+		return true;
+	}
+
+	@Override
+	public boolean readFromClipboard(CompoundTag nbt, Player player, Direction side, boolean simulate) {
+
+		if (!nbt.contains("First") || !nbt.contains("Last") || !isOwner(player)) return false;
+		if (simulate) return true;
+
+		setFrequency(true, ItemStack.of(nbt.getCompound("First")));
+		setFrequency(false, ItemStack.of(nbt.getCompound("Last")));
+		setOwner(nbt.contains("Owned") ? player.getGameProfile() : null);
+
+		return true;
+	}
 }
