@@ -1,7 +1,7 @@
 {
   "itemGroup.createutilities.base": "Create Utilities",
 
-  "block.createutilities.gearcube": "Gearcube",
+  "block.createutilities.gearcube": "6-Axis Gearbox",
   "block.createutilities.void_motor": "Void Motor",
   "block.createutilities.void_chest": "Void Chest",
   "block.createutilities.void_tank": "Void Tank",
