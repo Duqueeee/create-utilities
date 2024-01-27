@@ -1,0 +1,18 @@
+{
+  "itemGroup.createutilities.base": "Create Utilities",
+
+  "block.createutilities.gearcube": "Шестиосевая коробка передач",
+  "block.createutilities.void_motor": "Эндеритовый двигатель",
+  "block.createutilities.void_chest": "Эндеритовый сундук",
+  "block.createutilities.void_tank": "Эндеритовый бак",
+  "block.createutilities.void_casing": "Эндеритовый корпус",
+
+  "item.createutilities.void_steel_ingot": "Эндеритовый слиток",
+  "item.createutilities.void_steel_sheet": "Эндеритовый лист",
+  "item.createutilities.graviton_tube": "Гравитонная лампа",
+  "item.createutilities.polished_amethyst": "Полированный аметист",
+
+  "createutilities.logistics.owner": "Пользователь",
+  "createutilities.logistics.void.click_to_set_owner": "Нажмите, для личного использования",
+  "createutilities.logistics.void.click_to_remove_owner": "Нажмите, для общего использования"
+}

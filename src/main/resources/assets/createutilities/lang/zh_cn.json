@@ -1,0 +1,18 @@
+{
+  "itemGroup.createutilities.base": "机械动力：实用物品",
+
+  "block.createutilities.gearcube": "六轴齿轮箱",
+  "block.createutilities.void_motor": "虚空马达",
+  "block.createutilities.void_chest": "虚空箱子",
+  "block.createutilities.void_tank": "虚空流体储罐",
+  "block.createutilities.void_casing": "虚空机壳",
+
+  "item.createutilities.void_steel_ingot": "虚空钢锭",
+  "item.createutilities.void_steel_sheet": "虚空钢板",
+  "item.createutilities.graviton_tube": "真空管",
+  "item.createutilities.polished_amethyst": "磨制紫水晶",
+
+  "createutilities.logistics.owner": "所有者",
+  "createutilities.logistics.void.click_to_set_owner": "单击认领",
+  "createutilities.logistics.void.click_to_remove_owner": "单击取消认领"
+}

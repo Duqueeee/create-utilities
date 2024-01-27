@@ -1,0 +1,18 @@
+{
+  "itemGroup.createutilities.base": "Create Utilities",
+
+  "block.createutilities.gearcube": "Cubo de Transmissão",
+  "block.createutilities.void_motor": "Motor do Vazio",
+  "block.createutilities.void_chest": "Baú do Vazio",
+  "block.createutilities.void_tank": "Tanque do Vazio",
+  "block.createutilities.void_casing": "Revestimento do Vazio",
+
+  "item.createutilities.void_steel_ingot": "Barra de Aço do Vazio",
+  "item.createutilities.void_steel_sheet": "Chapa de Aço do Vazio",
+  "item.createutilities.graviton_tube": "Tube de Gráviton",
+  "item.createutilities.polished_amethyst": "Ametista Polida",
+
+  "createutilities.logistics.owner": "Dono",
+  "createutilities.logistics.void.click_to_set_owner": "Clique para tornar-se dono",
+  "createutilities.logistics.void.click_to_remove_owner": "Clique para deixar de ser dono"
+}
