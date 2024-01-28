@@ -2,6 +2,7 @@
   "itemGroup.createutilities.base": "Create Utilities",
 
   "block.createutilities.gearcube": "Cubo de Transmissão com 6 Eixos",
+  "block.createutilities.lshaped_gearbox": "Caixa de Transmissão em L",
   "block.createutilities.void_motor": "Motor do Vazio",
   "block.createutilities.void_chest": "Baú do Vazio",
   "block.createutilities.void_tank": "Tanque do Vazio",
