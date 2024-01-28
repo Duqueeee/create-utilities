@@ -1,9 +1,11 @@
 package me.duquee.createutilities.blocks;
 
 import com.simibubi.create.content.kinetics.base.HalfShaftInstance;
+import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.gearbox.GearboxBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
+import me.duquee.createutilities.blocks.lgearbox.LShapedGearboxInstance;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestRenderer;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorRenderer;
@@ -39,6 +41,14 @@ public class CUTileEntities {
 			.blockEntity("gearcube", GearboxBlockEntity::new)
 			.instance(() -> GearcubeInstance::new, false)
 			.validBlocks(CUBlocks.GEARCUBE)
+			.renderer(() -> KineticBlockEntityRenderer::new)
+			.register();
+
+	public static final BlockEntityEntry<GearboxBlockEntity> LSHAPED_GEARBOX = REGISTRATE
+			.blockEntity("lshaped_gearbox", GearboxBlockEntity::new)
+			.instance(() -> LShapedGearboxInstance::new, false)
+			.validBlocks(CUBlocks.LSHAPED_GEARBOX)
+			.renderer(() -> KineticBlockEntityRenderer::new)
 			.register();
 
 	public static void register() {}

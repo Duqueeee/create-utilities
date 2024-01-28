@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "createutilities:gearcube"
+    "createutilities:gearcube",
+    "createutilities:lshaped_gearbox"
   ]
 }
