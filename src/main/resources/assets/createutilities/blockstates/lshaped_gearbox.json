@@ -1,0 +1,100 @@
+{
+  "variants": {
+
+    "facing=north,facing_2=east": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=north,facing_2=up": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 270,
+      "x": 90
+    },
+    "facing=north,facing_2=west": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 270,
+      "x": 180
+    },
+    "facing=north,facing_2=down": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 270,
+      "x": 270
+    },
+
+
+    "facing=east,facing_2=east": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true
+    },
+    "facing=east,facing_2=up": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "x": 90
+    },
+    "facing=east,facing_2=west": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "x": 180
+    },
+    "facing=east,facing_2=down": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "x": 270
+    },
+
+
+    "facing=south,facing_2=east": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=south,facing_2=up": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 90,
+      "x": 90
+    },
+    "facing=south,facing_2=west": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 90,
+      "x": 180
+    },
+    "facing=south,facing_2=down": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 90,
+      "x": 270
+    },
+
+
+    "facing=west,facing_2=east": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,facing_2=up": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 180,
+      "x": 90
+    },
+    "facing=west,facing_2=west": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 180,
+      "x": 180
+    },
+    "facing=west,facing_2=down": {
+      "model": "createutilities:block/lshaped_gearbox/block",
+      "uvlock": true,
+      "y": 180,
+      "x": 270
+    }
+
+  }
+}

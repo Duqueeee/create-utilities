@@ -5,6 +5,7 @@
     "createutilities:void_motor",
     "createutilities:void_chest",
     "createutilities:void_tank",
-    "createutilities:gearcube"
+    "createutilities:gearcube",
+    "createutilities:lshaped_gearbox"
   ]
 }
