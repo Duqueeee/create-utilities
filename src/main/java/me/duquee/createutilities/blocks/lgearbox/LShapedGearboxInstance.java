@@ -50,7 +50,7 @@ public class LShapedGearboxInstance extends KineticBlockEntityInstance<GearboxBl
 		RotatingData key = shaft.createInstance();
 
 		key.setRotationAxis(Direction.get(Direction.AxisDirection.POSITIVE, axis).step())
-				.setRotationalSpeed(getSpeed(direction))
+				.setRotationalSpeed(blockEntity.getSpeed())
 				.setRotationOffset(getRotationOffset(axis)).setColor(tile)
 				.setPosition(getInstancePosition())
 				.setBlockLight(blockLight)
@@ -58,14 +58,6 @@ public class LShapedGearboxInstance extends KineticBlockEntityInstance<GearboxBl
 
 		keys.put(direction, key);
 
-	}
-
-	private float getSpeed(Direction direction) {
-		float speed = blockEntity.getSpeed();
-		if (speed != 0 && sourceFacing != null) {
-			speed *= sourceFacing == direction ? 1 : -1;
-		}
-		return speed;
 	}
 
 	protected void updateSourceFacing() {
@@ -83,7 +75,7 @@ public class LShapedGearboxInstance extends KineticBlockEntityInstance<GearboxBl
 		for (Map.Entry<Direction, RotatingData> key : keys.entrySet()) {
 			Direction direction = key.getKey();
 			Direction.Axis axis = direction.getAxis();
-			updateRotation(key.getValue(), axis, getSpeed(direction));
+			updateRotation(key.getValue(), axis, blockEntity.getSpeed());
 		}
 	}
 
