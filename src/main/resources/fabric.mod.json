@@ -10,7 +10,7 @@
   "contact": {
     "sources": "https://github.com/Duqueeee/create-utilities"
   },
-  "license": "CC0",
+  "license": "MIT",
   "icon": "assets/createutilities/icon.png",
   "environment": "*",
   "entrypoints": {
