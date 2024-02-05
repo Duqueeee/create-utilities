@@ -68,4 +68,10 @@ public class MountedStorageMixin {
 
 	}
 
+	@Inject(method = "canUseAsStorage(Lnet/minecraft/world/level/block/entity/BlockEntity;)Z", at = @At("HEAD"), cancellable = true)
+	private static void canUseVoidChestAsStorage(BlockEntity be, CallbackInfoReturnable<Boolean> cir) {
+		if (be instanceof VoidChestTileEntity)
+			cir.setReturnValue(true);
+	}
+
 }
