@@ -3,6 +3,7 @@ package me.duquee.createutilities.networking;
 import com.simibubi.create.foundation.networking.SimplePacketBase;
 
 import me.duquee.createutilities.CreateUtilities;
+import me.duquee.createutilities.networking.packets.VoidBatteryUpdatePacket;
 import me.duquee.createutilities.networking.packets.VoidTankUpdatePacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +18,8 @@ import java.util.function.Supplier;
 
 public enum CUPackets {
 
-	VOID_TANK_UPDATE(VoidTankUpdatePacket.class, VoidTankUpdatePacket::new, NetworkDirection.PLAY_TO_CLIENT);
+	VOID_TANK_UPDATE(VoidTankUpdatePacket.class, VoidTankUpdatePacket::new, NetworkDirection.PLAY_TO_CLIENT),
+	VOID_BATTERY_UPDATE(VoidBatteryUpdatePacket.class, VoidBatteryUpdatePacket::new, NetworkDirection.PLAY_TO_CLIENT);
 
 	public static final ResourceLocation CHANNEL_NAME = CreateUtilities.asResource("main");
 	public static final int NETWORK_VERSION = 2;

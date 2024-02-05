@@ -1,5 +1,7 @@
 package me.duquee.createutilities.blocks.voidtypes.tank;
 
+import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
+import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.VecHelper;
@@ -11,6 +13,7 @@ import me.duquee.createutilities.voidlink.VoidLinkSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -25,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class VoidTankTileEntity extends SmartBlockEntity {
+public class VoidTankTileEntity extends SmartBlockEntity implements IHaveGoggleInformation {
 
 	VoidLinkBehaviour link;
 
@@ -52,7 +55,7 @@ public class VoidTankTileEntity extends SmartBlockEntity {
 	public FluidTank getFluidStorage() {
 		return level != null && !level.isClientSide ?
 				CreateUtilities.VOID_TANKS_DATA.computeStorageIfAbsent(link.getNetworkKey()) :
-				CreateUtilitiesClient.VOID_TANKS.computeClientTankIfAbsent(link.getNetworkKey());
+				CreateUtilitiesClient.VOID_TANKS.computeStorageIfAbsent(link.getNetworkKey());
 	}
 
 	@Override
@@ -71,7 +74,7 @@ public class VoidTankTileEntity extends SmartBlockEntity {
 
 	@Override
 	protected void write(CompoundTag tag, boolean clientPacket) {
-		tag.put("Tank", getFluidStorage().writeToNBT(new CompoundTag()));
+		if (clientPacket) tag.put("Tank", getFluidStorage().writeToNBT(new CompoundTag()));
 		super.write(tag, clientPacket);
 	}
 
@@ -79,4 +82,8 @@ public class VoidTankTileEntity extends SmartBlockEntity {
 		return getBlockState().getValue(VoidTankBlock.CLOSED);
 	}
 
+	@Override
+	public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+		return containedFluidTooltip(tooltip, isPlayerSneaking, getFluidStorage());
+	}
 }
