@@ -6,7 +6,9 @@
   "mixins": [
     "ContraptionInvWrapperMixin",
     "MountedStorageAccessor",
-    "MountedStorageMixin"
+    "MountedStorageMixin",
+    "MountedStorageManagerMixin",
+    "SceneBuilderAccessor"
   ],
   "client": [
   ]

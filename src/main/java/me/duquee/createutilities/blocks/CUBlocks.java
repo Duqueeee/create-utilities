@@ -10,6 +10,7 @@ import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
 import me.duquee.createutilities.blocks.lgearbox.LShapedGearboxBlock;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryBlock;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestBlock;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorBlock;
 import me.duquee.createutilities.blocks.gearcube.GearcubeBlock;
@@ -67,6 +68,17 @@ public class CUBlocks {
 			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
 			.properties(p -> p.strength(30F, 600.0F))
 			.properties(p -> p.isRedstoneConductor((p1, p2, p3) -> true))
+			.transform(pickaxeOnly())
+			.item()
+			.properties(p -> p.rarity(Rarity.EPIC))
+			.transform(customItemModel())
+			.register();
+
+	public static final BlockEntry<VoidBatteryBlock> VOID_BATTERY = REGISTRATE.block("void_battery", VoidBatteryBlock::new)
+			.initialProperties(SharedProperties::stone)
+			.properties(BlockBehaviour.Properties::noOcclusion)
+			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
+			.properties(p -> p.strength(30F, 600.0F))
 			.transform(pickaxeOnly())
 			.item()
 			.properties(p -> p.rarity(Rarity.EPIC))
