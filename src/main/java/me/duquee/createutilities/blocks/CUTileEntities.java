@@ -6,6 +6,8 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 import me.duquee.createutilities.blocks.gearcube.SimpleKineticRenderer;
 import me.duquee.createutilities.blocks.lgearbox.LShapedGearboxInstance;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryRenderer;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestRenderer;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorRenderer;
@@ -35,6 +37,12 @@ public class CUTileEntities {
 			.blockEntity("void_tank", VoidTankTileEntity::new)
 			.validBlocks(CUBlocks.VOID_TANK)
 			.renderer(() -> VoidTankRenderer::new)
+			.register();
+
+	public static final BlockEntityEntry<VoidBatteryTileEntity> VOID_BATTERY = REGISTRATE
+			.blockEntity("void_battery", VoidBatteryTileEntity::new)
+			.validBlocks(CUBlocks.VOID_BATTERY)
+			.renderer(() -> VoidBatteryRenderer::new)
 			.register();
 
 	public static final BlockEntityEntry<GearboxBlockEntity> GEARCUBE = REGISTRATE

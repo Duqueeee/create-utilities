@@ -62,6 +62,11 @@ dependencies {
 		case "disabled": break
 		default: println("Unknown recipe viewer specified: ${recipe_viewer}. Must be JEI, REI, EMI, or disabled.")
 	}
+
+	include modApi("teamreborn:energy:${energy_version}") {
+		transitive = false
+	}
+
 	// if you would like to add integration with them, uncomment them here.
 //    modCompileOnly("mezz.jei:jei-${minecraft_version}-fabric:${jei_fabric_version}")
 //    modCompileOnly("mezz.jei:jei-${minecraft_version}-common:${jei_fabric_version}")
