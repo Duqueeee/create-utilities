@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import me.duquee.createutilities.blocks.CUBlocks;
 import me.duquee.createutilities.blocks.CUTileEntities;
 import me.duquee.createutilities.blocks.voidtypes.CUContainerTypes;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryData;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestInventoriesData;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTanksData;
 import me.duquee.createutilities.events.CommonEvents;
@@ -18,6 +19,8 @@ import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import team.reborn.energy.api.EnergyStorage;
+
 public class CreateUtilities implements ModInitializer {
 
 	public static final String ID = "createutilities";
@@ -29,6 +32,7 @@ public class CreateUtilities implements ModInitializer {
 	public static final VoidMotorNetworkHandler VOID_MOTOR_LINK_NETWORK_HANDLER = new VoidMotorNetworkHandler();
 	public static VoidChestInventoriesData VOID_CHEST_INVENTORIES_DATA;
 	public static VoidTanksData VOID_TANKS_DATA;
+	public static VoidBatteryData VOID_BATTERIES_DATA;
 
 	@Override
 	public void onInitialize() {
@@ -43,6 +47,9 @@ public class CreateUtilities implements ModInitializer {
 		CommonEvents.register();
 		CUPackets.registerPackets();
 		CUPackets.channel.initServerListener();
+
+		EnergyStorage.SIDED.registerForBlockEntity(
+				(battery, direction) -> battery.getBattery(), CUTileEntities.VOID_BATTERY.get());
 
 	}
 

@@ -1,42 +1,42 @@
 package me.duquee.createutilities.networking.packets;
 
 import com.simibubi.create.foundation.networking.SimplePacketBase;
-
+import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 import com.tterrag.registrate.fabric.EnvExecutor;
 
-import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
 import me.duquee.createutilities.CreateUtilitiesClient;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBattery;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
-import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
 import net.fabricmc.api.EnvType;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
 
-public class VoidTankUpdatePacket extends SimplePacketBase {
+public class VoidBatteryUpdatePacket extends SimplePacketBase {
 
 	private final NetworkKey key;
-	private final FluidTank tank;
+	private final VoidBattery battery;
 
-	public VoidTankUpdatePacket(NetworkKey key, VoidTank tank) {
+	public VoidBatteryUpdatePacket(NetworkKey key, VoidBattery battery) {
 		this.key = key;
-		this.tank = tank;
+		this.battery = battery;
 	}
 
-	public VoidTankUpdatePacket(FriendlyByteBuf buffer) {
+	public VoidBatteryUpdatePacket(FriendlyByteBuf buffer) {
 		key = NetworkKey.fromBuffer(buffer);
-		tank = new FluidTank(VoidTank.CAPACITY).readFromNBT(buffer.readNbt());
+		battery = new VoidBattery(key);
+		battery.deserializeNBT(buffer.readNbt());
 	}
 
 	@Override
 	public void write(FriendlyByteBuf buffer) {
 		key.writeToBuffer(buffer);
-		buffer.writeNbt(tank.writeToNBT(new CompoundTag()));
+		buffer.writeNbt(battery.serializeNBT());
 	}
 
 	@Override
 	public boolean handle(Context context) {
 		context.enqueueWork(() -> EnvExecutor.runWhenOn(EnvType.CLIENT, () -> () ->
-			CreateUtilitiesClient.VOID_TANKS.storages.put(key, tank)
+			CreateUtilitiesClient.VOID_BATTERIES.storages.put(key, battery)
 		));
 		return true;
 	}

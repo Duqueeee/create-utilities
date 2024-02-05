@@ -13,7 +13,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public abstract class VoidStorageData<T extends Storage<?>> extends SavedData {
+public abstract class VoidStorageData<T> extends SavedData {
 
 	protected final Map<NetworkKey, T> storages = new HashMap<>();
 
@@ -31,10 +31,10 @@ public abstract class VoidStorageData<T extends Storage<?>> extends SavedData {
 		return tag;
 	}
 
-	public static <T extends Storage<?>, S extends VoidStorageData<T>> S load(CompoundTag tag,
-																			  Supplier<S> storageDataSupplier,
-																			  Function<NetworkKey, T> storageSupplier,
-																			  BiConsumer<T, CompoundTag> deserializeNBT) {
+	public static <T, S extends VoidStorageData<T>> S load(CompoundTag tag,
+														   Supplier<S> storageDataSupplier,
+														   Function<NetworkKey, T> storageSupplier,
+														   BiConsumer<T, CompoundTag> deserializeNBT) {
 		S data = storageDataSupplier.get();
 		tag.getAllKeys().forEach(k -> {
 			NetworkKey key = NetworkKey.fromString(k);
