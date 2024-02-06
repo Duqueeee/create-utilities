@@ -3,9 +3,9 @@ package me.duquee.createutilities;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 
 import me.duquee.createutilities.blocks.CUBlocks;
-import me.duquee.createutilities.blocks.CUPartialsModels;
 import me.duquee.createutilities.blocks.CUTileEntities;
 import me.duquee.createutilities.blocks.voidtypes.CUContainerTypes;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryData;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestInventoriesData;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTanksData;
 import me.duquee.createutilities.items.CUItems;
@@ -15,6 +15,7 @@ import me.duquee.createutilities.networking.CUPackets;
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -34,7 +35,9 @@ public class CreateUtilities {
 
 	public static final VoidMotorNetworkHandler VOID_MOTOR_LINK_NETWORK_HANDLER = new VoidMotorNetworkHandler();
 	public static VoidChestInventoriesData VOID_CHEST_INVENTORIES_DATA;
+
 	public static VoidTanksData VOID_TANKS_DATA;
+	public static VoidBatteryData VOID_BATTERIES_DATA;
 
 	public CreateUtilities() {
 		onCtor();
@@ -43,6 +46,7 @@ public class CreateUtilities {
 	public static void onCtor() {
 
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
 		REGISTRATE.registerEventListeners(modEventBus);
 
@@ -52,7 +56,9 @@ public class CreateUtilities {
 		CUContainerTypes.register();
 
 		modEventBus.addListener(CreateUtilities::init);
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> CUPartialsModels::init);
+		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
+				CreateUtilitiesClient.onCtorClient(modEventBus, forgeEventBus)
+		);
 
 	}
 

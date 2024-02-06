@@ -32,7 +32,7 @@ public class MountedStorageMixin {
 		if (te instanceof VoidChestTileEntity) ci.cancel();
 	}
 
-	@Inject(method = "serialize()Lnet/minecraft/nbt/CompoundTag;", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "serialize()Lnet/minecraft/nbt/CompoundTag;", at = @At("HEAD"), cancellable = true, remap = false)
 	private void serializeVoidChest(CallbackInfoReturnable<CompoundTag> cir) {
 
 		if (!(handler instanceof VoidChestInventory voidChest)) return;
@@ -52,7 +52,7 @@ public class MountedStorageMixin {
 
 	}
 
-	@Inject(method = "deserialize(Lnet/minecraft/nbt/CompoundTag;)Lcom/simibubi/create/content/contraptions/MountedStorage;", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "deserialize(Lnet/minecraft/nbt/CompoundTag;)Lcom/simibubi/create/content/contraptions/MountedStorage;", at = @At("HEAD"), cancellable = true, remap = false)
 	private static void deserializeVoidChest(CompoundTag nbt, CallbackInfoReturnable<MountedStorage> cir) {
 
 		if (nbt == null) return;
@@ -69,7 +69,7 @@ public class MountedStorageMixin {
 
 	}
 
-	@Inject(method = "canUseAsStorage(Lnet/minecraft/world/level/block/entity/BlockEntity;)Z", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "canUseAsStorage(Lnet/minecraft/world/level/block/entity/BlockEntity;)Z", at = @At("HEAD"), cancellable = true, remap = false)
 	private static void canUseVoidChestAsStorage(BlockEntity be, CallbackInfoReturnable<Boolean> cir) {
 		if (be instanceof VoidChestTileEntity)
 			cir.setReturnValue(true);

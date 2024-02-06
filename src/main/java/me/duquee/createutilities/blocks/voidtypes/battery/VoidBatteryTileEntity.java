@@ -4,16 +4,18 @@ import java.util.List;
 
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 
-import com.simibubi.create.foundation.utility.Lang;
-
 import com.simibubi.create.foundation.utility.LangBuilder;
 
 import me.duquee.createutilities.CreateUtilitiesClient;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 
 import net.minecraft.network.chat.Component;
 
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
 import org.apache.commons.lang3.tuple.Triple;
 
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
@@ -26,6 +28,8 @@ import me.duquee.createutilities.voidlink.VoidLinkSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class VoidBatteryTileEntity extends SmartBlockEntity implements IHaveGoggleInformation {
 
@@ -55,14 +59,22 @@ public class VoidBatteryTileEntity extends SmartBlockEntity implements IHaveGogg
 		return level != null && !level.isClientSide;
 	}
 
-	private static VoidBatteryData getPersistentData() {
+	private static VoidBatteryData getPersistentStorageData() {
 		return CreateUtilities.VOID_BATTERIES_DATA;
 	}
 
 	public VoidBattery getBattery() {
 		return hasPersistentData() ?
-				getPersistentData().computeStorageIfAbsent(link.getNetworkKey()) :
+				getPersistentStorageData().computeStorageIfAbsent(link.getNetworkKey()) :
 				CreateUtilitiesClient.VOID_BATTERIES.computeStorageIfAbsent(link.getNetworkKey());
+	}
+
+	@Override
+	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+		if (cap == ForgeCapabilities.FLUID_HANDLER) {
+			return LazyOptional.of(this::getBattery).cast();
+		}
+		return super.getCapability(cap, side);
 	}
 
 	@Override
@@ -93,13 +105,13 @@ public class VoidBatteryTileEntity extends SmartBlockEntity implements IHaveGogg
 
 		new LangBuilder(CreateUtilities.ID)
 				.add(new LangBuilder(CreateUtilities.ID)
-						.text(battery.amount+ "fe")
+						.text(battery.getEnergyStored() + "fe")
 						.style(ChatFormatting.GOLD))
 				.add(new LangBuilder(CreateUtilities.ID)
 						.text(" / ")
 						.style(ChatFormatting.GRAY))
 				.add(new LangBuilder(CreateUtilities.ID)
-						.text(battery.capacity + "fe")
+						.text(battery.getMaxEnergyStored() + "fe")
 						.style(ChatFormatting.DARK_GRAY))
 				.forGoggles(tooltip, 1);
 

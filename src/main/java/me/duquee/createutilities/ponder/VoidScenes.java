@@ -12,13 +12,10 @@ import com.simibubi.create.foundation.ponder.element.EntityElement;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.utility.Pointing;
 
-import io.github.fabricators_of_create.porting_lib.transfer.TransferUtil;
-import io.github.fabricators_of_create.porting_lib.util.FluidStack;
 import me.duquee.createutilities.blocks.voidtypes.battery.VoidBatteryTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.chest.VoidChestTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorTileEntity;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTankTileEntity;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -28,6 +25,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import java.util.function.Consumer;
 
@@ -159,15 +158,15 @@ public class VoidScenes {
 
 		ParallelInstruction parallel = new ParallelInstruction(scene);
 
-		FluidStack honey = new FluidStack(AllFluids.HONEY.get(), FluidConstants.BOTTLE * 2);
-		FluidStack lava = new FluidStack(Fluids.LAVA, FluidConstants.BOTTLE * 2);
+		FluidStack honey = new FluidStack(AllFluids.HONEY.get(), 500);
+		FluidStack lava = new FluidStack(Fluids.LAVA, 500);
 		for (int i = 0; i < 8; i++) {
 
 			parallel.scene.world.modifyBlockEntity(sourcePos, VoidTankTileEntity.class,
-					te -> TransferUtil.insertFluid(te.getFluidStorage(), honey));
+					te -> te.getFluidStorage().fill(honey, IFluidHandler.FluidAction.EXECUTE));
 
 			parallel.scene.world.modifyBlockEntity(secSourcePos, VoidTankTileEntity.class,
-					te -> TransferUtil.insertFluid(te.getFluidStorage(), lava));
+					te -> te.getFluidStorage().fill(lava, IFluidHandler.FluidAction.EXECUTE));
 
 			parallel.scene.idle(15);
 		}
@@ -183,7 +182,7 @@ public class VoidScenes {
 				(pos) -> {},
 				(pos) -> scene.world.modifyBlockEntity(pos, VoidTankTileEntity.class,
 						te -> {
-							lava.setAmount(FluidConstants.BOTTLE * 16);
+							lava.setAmount(4000);
 							te.getFluidStorage().setFluid(lava);
 						}),
 				false, true
