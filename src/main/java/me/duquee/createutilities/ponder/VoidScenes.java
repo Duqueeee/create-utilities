@@ -23,6 +23,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -88,23 +89,33 @@ public class VoidScenes {
 		ItemStack stack = AllBlocks.BRASS_BLOCK.asStack();
 
 		Vec3 motion = new Vec3(0, -.2, 0);
-		for (int i = 0; i < 27; i++) {
+		for (int i = 0; i < 30; i++) {
 
-			ElementLink<EntityElement> item = parallel.scene.world.createItemEntity(
-					util.vector.of(4.75, 3, 0.5), motion, stack);
-			parallel.scene.idle(5);
+			if (i < 27) {
 
-			parallel.scene.world.modifyEntity(item, Entity::discard);
-			parallel.scene.world.createItemOnBelt(sourceEntryBelt, Direction.EAST, stack);
-			parallel.scene.idle(16);
+				ElementLink<EntityElement> item = parallel.scene.world.createItemEntity(
+						util.vector.of(4.75, 3, 0.5), motion, stack);
+				parallel.scene.idle(5);
 
-			parallel.scene.world.removeItemsFromBelt(sourceExitBelt);
-			parallel.scene.world.flapFunnel(sourceExitBelt.above(), false);
+				parallel.scene.world.modifyEntity(item, Entity::discard);
+				parallel.scene.world.createItemOnBelt(sourceEntryBelt, Direction.EAST, stack);
+				parallel.scene.idle(16);
 
-			if (i < 6 || i > 21) {
-				parallel.scene.world.createItemOnBelt(receiverEntryBelt, Direction.EAST, stack);
-				parallel.scene.world.flapFunnel(receiverEntryBelt.above(), true);
+				parallel.scene.world.removeItemsFromBelt(sourceExitBelt);
+				parallel.scene.world.flapFunnel(sourceExitBelt.above(), false);
+
+				if (i < 6 || i > 21) {
+					parallel.scene.world.createItemOnBelt(receiverEntryBelt, Direction.EAST, stack);
+					parallel.scene.world.flapFunnel(receiverEntryBelt.above(), true);
+				}
+
+			} else {
+				parallel.scene.idle(21);
 			}
+
+			parallel.scene.world.modifyEntities(ItemEntity.class, entity -> {
+				if (entity.position().y < 1) entity.discard();
+			});
 
 		}
 

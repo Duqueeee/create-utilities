@@ -2,13 +2,11 @@ package me.duquee.createutilities.blocks.voidtypes.battery;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Vector3f;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 
 import com.simibubi.create.foundation.render.CachedBufferer;
 
-import com.simibubi.create.foundation.utility.animation.LerpedFloat;
-
-import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.CUPartialsModels;
 import me.duquee.createutilities.blocks.voidtypes.VoidTileRenderer;
 import net.minecraft.client.model.SkullModel;
@@ -19,8 +17,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
-
-import org.joml.Vector3f;
 
 public class VoidBatteryRenderer extends SafeBlockEntityRenderer<VoidBatteryTileEntity> implements VoidTileRenderer<VoidBatteryTileEntity> {
 
@@ -45,8 +41,12 @@ public class VoidBatteryRenderer extends SafeBlockEntityRenderer<VoidBatteryTile
 		float progress = (float) battery.amount / battery.capacity;
 
 		Direction direction = state.getValue(VoidBatteryBlock.FACING);
-		Vector3f vec = new Vector3f(.5f, .375f, .5f)
-				.add(direction.step().mul(.625f));
+
+		Vector3f dirVec = direction.step();
+		dirVec.mul(.625f);
+
+		Vector3f vec = new Vector3f(.5f, .375f, .5f);
+		vec.add(dirVec);
 
 		ms.pushPose();
 		CachedBufferer.partial(CUPartialsModels.VOID_BATTERY_DIAL, state)
