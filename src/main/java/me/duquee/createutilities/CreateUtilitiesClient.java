@@ -1,7 +1,13 @@
 package me.duquee.createutilities;
 
+import me.duquee.createutilities.blocks.CUPartialsModels;
+import me.duquee.createutilities.blocks.voidtypes.VoidStorageClient;
+import me.duquee.createutilities.blocks.voidtypes.battery.VoidBattery;
 import me.duquee.createutilities.blocks.voidtypes.tank.VoidTank;
+import me.duquee.createutilities.ponder.CUPonderIndex;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class CreateUtilitiesClient {
 
@@ -10,5 +16,14 @@ public class CreateUtilitiesClient {
 
 	public static final VoidStorageClient<VoidBattery> VOID_BATTERIES = new VoidStorageClient<>(
 			VoidBattery::new);
+
+	public static void onCtorClient(IEventBus modEventBus, IEventBus forgeEventBus) {
+		modEventBus.addListener(CreateUtilitiesClient::clientInit);
+	}
+
+	public static void clientInit(final FMLClientSetupEvent event) {
+		CUPartialsModels.init();
+		CUPonderIndex.register();
+	}
 
 }

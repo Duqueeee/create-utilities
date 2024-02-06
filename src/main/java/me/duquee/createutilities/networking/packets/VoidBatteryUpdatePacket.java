@@ -1,15 +1,14 @@
 package me.duquee.createutilities.networking.packets;
 
 import com.simibubi.create.foundation.networking.SimplePacketBase;
-import com.simibubi.create.foundation.utility.animation.LerpedFloat;
-import com.tterrag.registrate.fabric.EnvExecutor;
 
 import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.voidtypes.battery.VoidBattery;
 import me.duquee.createutilities.blocks.voidtypes.motor.VoidMotorNetworkHandler.NetworkKey;
-import net.fabricmc.api.EnvType;
 import net.minecraft.network.FriendlyByteBuf;
-import team.reborn.energy.api.base.SimpleEnergyStorage;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.network.NetworkEvent;
 
 public class VoidBatteryUpdatePacket extends SimplePacketBase {
 
@@ -34,8 +33,8 @@ public class VoidBatteryUpdatePacket extends SimplePacketBase {
 	}
 
 	@Override
-	public boolean handle(Context context) {
-		context.enqueueWork(() -> EnvExecutor.runWhenOn(EnvType.CLIENT, () -> () ->
+	public boolean handle(NetworkEvent.Context context) {
+		context.enqueueWork(() -> DistExecutor.runWhenOn(Dist.CLIENT, () -> () ->
 			CreateUtilitiesClient.VOID_BATTERIES.storages.put(key, battery)
 		));
 		return true;

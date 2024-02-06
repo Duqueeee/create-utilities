@@ -36,7 +36,7 @@ public class VoidTankUpdatePacket extends SimplePacketBase {
 	@Override
 	public boolean handle(NetworkEvent.Context context) {
 		context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () ->
-				CreateUtilitiesClient.VOID_TANKS.clientTanks.put(key, tank)));
+				CreateUtilitiesClient.VOID_TANKS.storages.put(key, tank)));
 		return true;
 	}
 

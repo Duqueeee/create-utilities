@@ -8,13 +8,10 @@ import com.simibubi.create.content.kinetics.gearbox.GearboxBlockEntity;
 import com.simibubi.create.foundation.block.IBE;
 
 import me.duquee.createutilities.blocks.CUTileEntities;
-import net.fabricmc.fabric.api.block.BlockPickInteractionAware;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -24,9 +21,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.HitResult;
 
-public class LShapedGearboxBlock extends KineticBlock implements IBE<GearboxBlockEntity>, BlockPickInteractionAware, ITransformableBlock {
+public class LShapedGearboxBlock extends KineticBlock implements IBE<GearboxBlockEntity>, ITransformableBlock {
 
 	public static final DirectionProperty FACING_1 = BlockStateProperties.HORIZONTAL_FACING;
 	public static final DirectionProperty FACING_2 = DirectionProperty.create("facing_2",
@@ -84,11 +80,6 @@ public class LShapedGearboxBlock extends KineticBlock implements IBE<GearboxBloc
 	@Override
 	public Direction.Axis getRotationAxis(BlockState state) {
 		return Direction.Axis.Y;
-	}
-
-	@Override
-	public ItemStack getPickedStack(BlockState state, BlockGetter view, BlockPos pos, Player player, HitResult result) {
-		return new ItemStack(this);
 	}
 
 	@Override

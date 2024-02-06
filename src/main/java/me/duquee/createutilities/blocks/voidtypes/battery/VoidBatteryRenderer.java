@@ -6,9 +6,6 @@ import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRender
 
 import com.simibubi.create.foundation.render.CachedBufferer;
 
-import com.simibubi.create.foundation.utility.animation.LerpedFloat;
-
-import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.CUPartialsModels;
 import me.duquee.createutilities.blocks.voidtypes.VoidTileRenderer;
 import net.minecraft.client.model.SkullModel;
@@ -42,7 +39,7 @@ public class VoidBatteryRenderer extends SafeBlockEntityRenderer<VoidBatteryTile
 		VertexConsumer vb = buffer.getBuffer(RenderType.solid());
 
 		VoidBattery battery = te.getBattery();
-		float progress = (float) battery.amount / battery.capacity;
+		float progress = (float) battery.getEnergyStored() / battery.getMaxEnergyStored();
 
 		Direction direction = state.getValue(VoidBatteryBlock.FACING);
 		Vector3f vec = new Vector3f(.5f, .375f, .5f)
