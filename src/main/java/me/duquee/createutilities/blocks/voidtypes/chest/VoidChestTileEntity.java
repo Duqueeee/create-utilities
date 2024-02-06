@@ -90,7 +90,7 @@ public class VoidChestTileEntity extends SmartBlockEntity implements MenuProvide
 	protected void write(CompoundTag tag, boolean clientPacket) {
 
 		if (hasPersistentData()) tag.put("Inventory", getItemStorage().serializeNBT());
-		else tag.put("Inventory", inventory.serializeNBT());
+		else if (inventory != null) tag.put("Inventory", inventory.serializeNBT());
 
 		if (clientPacket) tag.putInt("OpenCount", openCount);
 
