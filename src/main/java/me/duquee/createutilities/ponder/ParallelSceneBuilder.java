@@ -6,7 +6,7 @@ import com.simibubi.create.foundation.ponder.instruction.PonderInstruction;
 
 public class ParallelSceneBuilder extends SceneBuilder {
 
-	private ParallelInstruction instruction;
+	private final ParallelInstruction instruction;
 
 	public ParallelSceneBuilder(PonderScene ponderScene, ParallelInstruction instruction) {
 		super(ponderScene);
