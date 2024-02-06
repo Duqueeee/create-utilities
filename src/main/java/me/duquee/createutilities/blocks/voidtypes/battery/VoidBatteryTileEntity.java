@@ -71,7 +71,7 @@ public class VoidBatteryTileEntity extends SmartBlockEntity implements IHaveGogg
 
 	@Override
 	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-		if (cap == ForgeCapabilities.FLUID_HANDLER) {
+		if (cap == ForgeCapabilities.ENERGY) {
 			return LazyOptional.of(this::getBattery).cast();
 		}
 		return super.getCapability(cap, side);

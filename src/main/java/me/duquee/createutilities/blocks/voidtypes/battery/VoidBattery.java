@@ -30,7 +30,7 @@ public class VoidBattery extends EnergyStorage {
 
 	@Override
 	public int extractEnergy(int maxExtract, boolean simulate) {
-		int extracted = super.receiveEnergy(maxExtract, simulate);
+		int extracted = super.extractEnergy(maxExtract, simulate);
 		if (extracted != 0) onContentsChanged();
 		return extracted;
 	}

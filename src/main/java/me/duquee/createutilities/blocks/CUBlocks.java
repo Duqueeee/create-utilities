@@ -77,7 +77,7 @@ public class CUBlocks {
 	public static final BlockEntry<VoidBatteryBlock> VOID_BATTERY = REGISTRATE.block("void_battery", VoidBatteryBlock::new)
 			.initialProperties(SharedProperties::stone)
 			.properties(BlockBehaviour.Properties::noOcclusion)
-			.properties(p -> p.mapColor(MapColor.COLOR_BLACK))
+			.properties(p -> p.color(MaterialColor.COLOR_BLACK))
 			.properties(p -> p.strength(30F, 600.0F))
 			.transform(pickaxeOnly())
 			.item()
