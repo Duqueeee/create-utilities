@@ -15,11 +15,10 @@ public class ParallelInstruction extends PonderInstruction {
 	private final List<PonderInstruction> schedule = new ArrayList<>();
 	private final List<PonderInstruction> activeSchedule = new ArrayList<>();
 
-	private final PonderScene ponderScene;
 	public final ParallelSceneBuilder scene;
 
 	public ParallelInstruction(SceneBuilder scene) {
-		this.ponderScene = ((SceneBuilderAccessor) scene).getScene();
+		PonderScene ponderScene = ((SceneBuilderAccessor) scene).getScene();
 		this.scene = new ParallelSceneBuilder(ponderScene, this);
 	}
 
