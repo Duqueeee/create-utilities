@@ -91,6 +91,12 @@ public class VoidLinkBehaviour extends BlockEntityBehaviour implements Clipboard
 		blockEntity.sendData();
 		onJoinNetwork();
 
+		updateBlock();
+
+	}
+
+	private void updateBlock() {
+		blockEntity.getLevel().blockUpdated(blockEntity.getBlockPos(), blockEntity.getBlockState().getBlock());
 	}
 
 	public boolean testHit(int index, Vec3 hit) {
@@ -129,6 +135,7 @@ public class VoidLinkBehaviour extends BlockEntityBehaviour implements Clipboard
 			this.owner = owner;
 			blockEntity.sendData();
 			onJoinNetwork();
+			updateBlock();
 		}
 	}
 
