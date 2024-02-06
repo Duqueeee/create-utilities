@@ -6,6 +6,7 @@
   "block.createutilities.void_motor": "Motor do Vazio",
   "block.createutilities.void_chest": "Baú do Vazio",
   "block.createutilities.void_tank": "Tanque do Vazio",
+  "block.createutilities.void_battery": "Bateria do Vazio",
   "block.createutilities.void_casing": "Revestimento do Vazio",
 
   "item.createutilities.void_steel_ingot": "Barra de Aço do Vazio",
@@ -15,5 +16,48 @@
 
   "createutilities.logistics.owner": "Dono",
   "createutilities.logistics.void.click_to_set_owner": "Clique para tornar-se dono",
-  "createutilities.logistics.void.click_to_remove_owner": "Clique para deixar de ser dono"
+  "createutilities.logistics.void.click_to_remove_owner": "Clique para deixar de ser dono",
+
+  "createutilities.ponder.gearcube.header": "Transmitindo Força de Rotação usando Caixas de Transmissão de 6 Eixos",
+  "createutilities.ponder.gearcube.text_1": "Transmitir Força de Rotação em todas as direções pode ficar volumoso",
+  "createutilities.ponder.gearcube.text_2": "Uma Caixa de Transmissão de 6 Eixos de transmissão é o equivalente mais compacto desta configuração",
+
+  "createutilities.ponder.lshaped_gearbox.header": "Transmitindo Força de Rotação usando Caixas de Transmissão em L",
+  "createutilities.ponder.lshaped_gearbox.text_1": "Mudar de direção pode ficar volumoso rapidamente",
+  "createutilities.ponder.lshaped_gearbox.text_2": "Uma configuração alternativa é usar uma Caixa de Transmissão, porém dois Eixos não são usados",
+  "createutilities.ponder.lshaped_gearbox.text_3": "Com uma Caixa de Transmissão em L isto pode ser feito de uma forma mais simpática",
+  "createutilities.ponder.lshaped_gearbox.text_4": "Clicando com uma Chave Inglesa, pode mudar a orientação do Eixo secundário",
+
+  "createutilities.ponder.void_motor.header": "Usando Motores do Vazio",
+  "createutilities.ponder.void_motor.text_1": "Motores do Vazio podem transmitir Força de Rotação à distância",
+  "createutilities.ponder.void_motor.text_2": "Coloque items nos slots superiores para especificar uma frequência",
+  "createutilities.ponder.void_motor.text_3": "Clique no slot inferior para deixar de ser dono",
+  "createutilities.ponder.void_motor.text_4": "Clique novamente para voltar a ser dono",
+  "createutilities.ponder.void_motor.text_5": "Se um Motor do Vazio tiver dono, só o dono poderá alterar a sua frequência",
+  "createutilities.ponder.void_motor.text_6": "Um Motor do Vazio só receberá Força de Rotação de Motores do Vazio com a mesma frequência e dono",
+
+  "createutilities.ponder.void_chest.header": "Usando Baús do Vazio",
+  "createutilities.ponder.void_chest.text_1": "Baús do Vazio podem transmitir itens à distância",
+  "createutilities.ponder.void_chest.text_2": "Coloque items nos slots superiores para especificar uma frequência",
+  "createutilities.ponder.void_chest.text_3": "Clique no slot inferior para deixar de ser dono",
+  "createutilities.ponder.void_chest.text_4": "Clique novamente para voltar a ser dono",
+  "createutilities.ponder.void_chest.text_5": "Se um Baú do Vazio tiver dono, só o dono poderá alterar a sua frequência",
+  "createutilities.ponder.void_chest.text_6": "Um Baú do Vazio só receberá itens de Baús do Vazio com a mesma frequência e dono",
+
+  "createutilities.ponder.void_tank.header": "Usando Tanques do Vazio",
+  "createutilities.ponder.void_tank.text_1": "Tanques do Vazio podem transmitir fluidos à distância",
+  "createutilities.ponder.void_tank.text_2": "Coloque items nos slots superiores para especificar uma frequência",
+  "createutilities.ponder.void_tank.text_3": "Clique no slot inferior para deixar de ser dono",
+  "createutilities.ponder.void_tank.text_4": "Clique novamente para voltar a ser dono",
+  "createutilities.ponder.void_tank.text_5": "Se um Tanque do Vazio tiver dono, só o dono poderá alterar a sua frequência",
+  "createutilities.ponder.void_tank.text_6": "Um Tanque do Vazio só receberá fluidos de Tanques do Vazio com a mesma frequência e dono",
+
+  "createutilities.ponder.void_battery.header": "Usando Baterias do Vazio",
+  "createutilities.ponder.void_battery.text_1": "Baterias do Vazio podem transmitir energia à distância",
+  "createutilities.ponder.void_battery.text_2": "Coloque items nos slots superiores para especificar uma frequência",
+  "createutilities.ponder.void_battery.text_3": "Clique no slot inferior para deixar de ser dono",
+  "createutilities.ponder.void_battery.text_4": "Clique novamente para voltar a ser dono",
+  "createutilities.ponder.void_battery.text_5": "Se uma Bateria do Vazio tiver dono, só o dono poderá alterar a sua frequência",
+  "createutilities.ponder.void_battery.text_6": "Uma Bateria do Vazio só receberá energia de Baterias do Vazio com a mesma frequência e dono"
+
 }
