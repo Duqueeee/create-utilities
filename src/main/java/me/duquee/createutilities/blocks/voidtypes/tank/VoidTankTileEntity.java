@@ -8,11 +8,11 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 import com.simibubi.create.foundation.utility.VecHelper;
 
 import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTank;
+import io.github.fabricators_of_create.porting_lib.transfer.fluid.FluidTransferable;
 import me.duquee.createutilities.CreateUtilities;
 import me.duquee.createutilities.CreateUtilitiesClient;
 import me.duquee.createutilities.blocks.voidtypes.VoidLinkBehaviour;
 import me.duquee.createutilities.voidlink.VoidLinkSlot;
-import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class VoidTankTileEntity extends SmartBlockEntity implements SidedStorageBlockEntity, IHaveGoggleInformation {
+public class VoidTankTileEntity extends SmartBlockEntity implements FluidTransferable, IHaveGoggleInformation {
 
 	VoidLinkBehaviour link;
 

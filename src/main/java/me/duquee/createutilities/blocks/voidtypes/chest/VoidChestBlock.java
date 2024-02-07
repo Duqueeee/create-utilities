@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.block.IBE;
 
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 
-import io.github.fabricators_of_create.porting_lib.util.NetworkHooks;
+import io.github.fabricators_of_create.porting_lib.util.NetworkUtil;
 import me.duquee.createutilities.blocks.CUTileEntities;
 import me.duquee.createutilities.blocks.voidtypes.VoidLinkBehaviour;
 import net.minecraft.core.BlockPos;
@@ -84,7 +84,7 @@ public class VoidChestBlock extends HorizontalDirectionalBlock implements IWrenc
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (level.isClientSide) return InteractionResult.SUCCESS;
 		withBlockEntityDo(level, pos, voidChest ->
-				NetworkHooks.openScreen((ServerPlayer) player, voidChest, voidChest::sendToMenu)
+				NetworkUtil.openGui((ServerPlayer) player, voidChest, voidChest::sendToMenu)
 		);
 		return InteractionResult.SUCCESS;
 	}

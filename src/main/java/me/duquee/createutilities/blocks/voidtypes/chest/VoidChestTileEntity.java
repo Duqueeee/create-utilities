@@ -6,14 +6,15 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 import com.simibubi.create.foundation.utility.VecHelper;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 
+import io.github.fabricators_of_create.porting_lib.transfer.item.ItemTransferable;
 import me.duquee.createutilities.CreateUtilities;
 import me.duquee.createutilities.blocks.voidtypes.VoidLinkBehaviour;
 import me.duquee.createutilities.voidlink.VoidLinkSlot;
-import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.MenuProvider;
@@ -31,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class VoidChestTileEntity extends SmartBlockEntity implements MenuProvider, SidedStorageBlockEntity {
+public class VoidChestTileEntity extends SmartBlockEntity implements MenuProvider, ItemTransferable {
 
 	VoidLinkBehaviour link;
 	VoidChestInventory inventory;
@@ -99,7 +100,7 @@ public class VoidChestTileEntity extends SmartBlockEntity implements MenuProvide
 
 	@Override
 	public @NotNull Component getDisplayName() {
-		return Component.translatable("block.createutilities.void_chest");
+		return new TranslatableComponent("block.createutilities.void_chest");
 	}
 
 	@Nullable
