@@ -8,6 +8,7 @@ import com.simibubi.create.foundation.utility.Couple;
 import com.simibubi.create.foundation.utility.WorldHelper;
 
 import me.duquee.createutilities.CreateUtilities;
+import me.duquee.createutilities.utils.BufferUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -83,14 +84,14 @@ public class VoidMotorNetworkHandler {
 			buffer.writeItem(frequencies.get(true).getStack());
 			buffer.writeItem(frequencies.get(false).getStack());
 			buffer.writeBoolean(owner != null);
-			if (owner != null) buffer.writeGameProfile(owner);
+			if (owner != null) BufferUtils.writeGameProfile(buffer, owner);
 		}
 
 		public static NetworkKey fromBuffer(FriendlyByteBuf buffer) {
 			ItemStack frequencyFirst = buffer.readItem();
 			ItemStack frequencyLast = buffer.readItem();
 			GameProfile owner = null;
-			if (buffer.readBoolean()) owner = buffer.readGameProfile();
+			if (buffer.readBoolean()) owner = BufferUtils.readGameProfile(buffer);
 			return new NetworkKey(owner, Frequency.of(frequencyFirst), Frequency.of(frequencyLast));
 		}
 

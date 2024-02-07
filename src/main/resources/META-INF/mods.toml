@@ -32,7 +32,7 @@ Adds extra utilities to the Create mod
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[43.2.3,)" #mandatory
+    versionRange="[40.2.4,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -42,13 +42,13 @@ Adds extra utilities to the Create mod
     modId="minecraft"
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.19.2]"
+    versionRange="[1.18.2]"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.createutilities]]
     modId="create"
     mandatory=true
-    versionRange="[0.5.0.d,)"
+    versionRange="[0.5.1.f-332,)"
     ordering="NONE"
     side="BOTH"

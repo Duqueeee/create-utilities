@@ -83,7 +83,7 @@ public class VoidChestBlock extends HorizontalDirectionalBlock implements IWrenc
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (level.isClientSide) return InteractionResult.SUCCESS;
 		withBlockEntityDo(level, pos, voidChest ->
-				NetworkHooks.openScreen((ServerPlayer) player, voidChest, voidChest::sendToMenu)
+				NetworkHooks.openGui((ServerPlayer) player, voidChest, voidChest::sendToMenu)
 		);
 		return InteractionResult.SUCCESS;
 	}

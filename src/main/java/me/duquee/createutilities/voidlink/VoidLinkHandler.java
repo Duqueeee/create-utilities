@@ -26,9 +26,9 @@ public class VoidLinkHandler {
 	@SubscribeEvent
 	public static void onBlockActivated(PlayerInteractEvent.RightClickBlock event) {
 
-		Level world = event.getLevel();
+		Level world = event.getWorld();
 		BlockPos pos = event.getPos();
-		Player player = event.getEntity();
+		Player player = event.getPlayer();
 		InteractionHand hand = event.getHand();
 
 		if (player.isShiftKeyDown() || player.isSpectator())

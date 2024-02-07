@@ -14,8 +14,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.CapabilityEnergy;
 import org.apache.commons.lang3.tuple.Triple;
 
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
@@ -71,7 +71,7 @@ public class VoidBatteryTileEntity extends SmartBlockEntity implements IHaveGogg
 
 	@Override
 	public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-		if (cap == ForgeCapabilities.ENERGY) {
+		if (cap == CapabilityEnergy.ENERGY) {
 			return LazyOptional.of(this::getBattery).cast();
 		}
 		return super.getCapability(cap, side);
