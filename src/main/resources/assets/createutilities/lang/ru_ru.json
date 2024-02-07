@@ -2,9 +2,11 @@
   "itemGroup.createutilities.base": "Create Utilities",
 
   "block.createutilities.gearcube": "Шестиосевая коробка передач",
+  "block.createutilities.lshaped_gearbox": "Угловая коробка передач",
   "block.createutilities.void_motor": "Эндеритовый двигатель",
   "block.createutilities.void_chest": "Эндеритовый сундук",
   "block.createutilities.void_tank": "Эндеритовый бак",
+  "block.createutilities.void_battery": "Эндеритовая батарея",
   "block.createutilities.void_casing": "Эндеритовый корпус",
 
   "item.createutilities.void_steel_ingot": "Эндеритовый слиток",
@@ -14,5 +16,51 @@
 
   "createutilities.logistics.owner": "Пользователь",
   "createutilities.logistics.void.click_to_set_owner": "Нажмите, для личного использования",
-  "createutilities.logistics.void.click_to_remove_owner": "Нажмите, для общего использования"
+  "createutilities.logistics.void.click_to_remove_owner": "Нажмите, для общего использования",
+
+  "createutilities.tooltip.void_battery.header": "Информация о заряде:",
+  "createutilities.tooltip.void_battery.energy": "Энергия",
+
+  "createutilities.ponder.gearcube.header": "Передача силы вращения с помощью шестиосевых коробок передач",
+  "createutilities.ponder.gearcube.text_1": "Передача вращения валов во всех направлениях может быть громоздким",
+  "createutilities.ponder.gearcube.text_2": "Более компактным вариантом реализации такой задачи может стать шестиосевая коробка передач",
+
+  "createutilities.ponder.lshaped_gearbox.header": "Передача силы вращения с помощью угловой коробки передач",
+  "createutilities.ponder.lshaped_gearbox.text_1": "Переходы между осями вращения могут быстро стать громоздкими",
+  "createutilities.ponder.lshaped_gearbox.text_2": "Более компактной альтернативой является использование коробки передач, но два вала остаются неиспользуемыми",
+  "createutilities.ponder.lshaped_gearbox.text_3": "С угловой коробкой передач вы можете сделать это более аккуратно и дёшево",
+  "createutilities.ponder.lshaped_gearbox.text_4": "Щёлкнув правой кнопкой мыши гаечным ключом, вы можете изменить положение угла",
+
+  "createutilities.ponder.void_motor.header": "Использование эндеритовых двигателей",
+  "createutilities.ponder.void_motor.text_1": "Эндеритовые двигатели могут передавать вращение на большие расстояния",
+  "createutilities.ponder.void_motor.text_2": "Поместите предметы в два слота, чтобы указать частоту",
+  "createutilities.ponder.void_motor.text_3": "Щелкните правой кнопкой мыши на нижнем слоте, чтобы лично управлять настройками",
+  "createutilities.ponder.void_motor.text_4": "Щёлкните по нему правой кнопкой мыши ещё раз, чтобы сделать настройки общедоступными",
+  "createutilities.ponder.void_motor.text_5": "Если владелец закреплён, то только он может изменить частоту эндеритового двигателя",
+  "createutilities.ponder.void_motor.text_6": "Эндеритовый двигатель будет передавать вращение только от эндеритового двигателя с той же частотой и с тем же владельцем",
+
+  "createutilities.ponder.void_chest.header": "Использование эндеритовых сундуков",
+  "createutilities.ponder.void_chest.text_1": "Эндеритовые сундуки могут передавать предметы на большие расстояния",
+  "createutilities.ponder.void_chest.text_2": "Поместите предметы в два слота, чтобы указать частоту",
+  "createutilities.ponder.void_chest.text_3": "Щелкните правой кнопкой мыши на нижнем слоте, чтобы лично управлять настройками",
+  "createutilities.ponder.void_chest.text_4": "Щёлкните по нему правой кнопкой мыши ещё раз, чтобы сделать настройки общедоступными",
+  "createutilities.ponder.void_chest.text_5": "Если владелец закреплён, то только он может изменить частоту эндеритового сундука",
+  "createutilities.ponder.void_chest.text_6": "Эндеритовый сундук будет передавать предметы только от эндеритового сундука с той же частотой и с тем же владельцем",
+
+  "createutilities.ponder.void_tank.header": "Использование эндеритовых баков",
+  "createutilities.ponder.void_tank.text_1": "Эндеритовые баки могут передавать жидкости на большие расстояния",
+  "createutilities.ponder.void_tank.text_2": "Поместите предметы в два слота, чтобы указать частоту",
+  "createutilities.ponder.void_tank.text_3": "Щелкните правой кнопкой мыши на нижнем слоте, чтобы лично управлять настройками",
+  "createutilities.ponder.void_tank.text_4": "Щёлкните по нему правой кнопкой мыши ещё раз, чтобы сделать настройки общедоступными",
+  "createutilities.ponder.void_tank.text_5": "Если владелец закреплён, то только он может изменить частоту эндеритового бака",
+  "createutilities.ponder.void_tank.text_6": "Эндеритовый бак будет передавать жидкости только от эндеритового бака с той же частотой и с тем же владельцем",
+
+  "createutilities.ponder.void_battery.header": "Использование эндеритовых батарей",
+  "createutilities.ponder.void_battery.text_1": "Эндеритовые батареи могут передавать энергию на большие расстояния",
+  "createutilities.ponder.void_battery.text_2": "Поместите предметы в два слота, чтобы указать частоту",
+  "createutilities.ponder.void_battery.text_3": "Щелкните правой кнопкой мыши на нижнем слоте, чтобы лично управлять настройками",
+  "createutilities.ponder.void_battery.text_4": "Щёлкните по нему правой кнопкой мыши ещё раз, чтобы сделать настройки общедоступными",
+  "createutilities.ponder.void_battery.text_5": "Если владелец закреплён, то только он может изменить частоту эндеритовой батареи",
+  "createutilities.ponder.void_battery.text_6": "Эндеритовая батарея будет получать энергию только от эндеритовой батарей с той же частотой и с тем же владельцем"
+
 }
