@@ -13,7 +13,7 @@ public class VoidBattery extends SimpleEnergyStorage {
 	private final NetworkKey key;
 
 	public VoidBattery(NetworkKey key) {
-		super(32000, 32, 32);
+		super(32000, 4096, 4096);
 		this.key = key;
 	}
 
