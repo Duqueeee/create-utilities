@@ -18,8 +18,8 @@ public class CreateUtilitiesClient {
 			VoidBattery::new);
 
 	public static void onCtorClient(IEventBus modEventBus, IEventBus forgeEventBus) {
-		CUPartialsModels.init();
 		modEventBus.addListener(CreateUtilitiesClient::clientInit);
+		CUPartialsModels.init();
 	}
 
 	public static void clientInit(final FMLClientSetupEvent event) {
