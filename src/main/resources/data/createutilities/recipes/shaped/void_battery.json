@@ -8,10 +8,10 @@
       "item": "createutilities:void_casing"
     },
     "Z": {
-      "tag": "forge:plates/copper"
+      "tag": "c:copper_plates"
     },
     "W": {
-      "tag": "forge:nuggets/gold"
+      "tag": "c:gold_nuggets"
     }
   },
   "pattern": [
