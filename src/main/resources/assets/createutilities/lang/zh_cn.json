@@ -8,6 +8,12 @@
   "block.createutilities.void_tank": "虚空流体储罐",
   "block.createutilities.void_battery": "虚空蓄电池",
   "block.createutilities.void_casing": "虚空机壳",
+  "block.createutilities.void_steel_block": "虚空钢块",
+  "block.createutilities.void_steel_scaffolding": "虚空钢脚手架",
+  "block.createutilities.void_steel_ladder": "虚空钢梯子",
+  "block.createutilities.void_steel_bars": "虚空钢栏杆",
+  "block.createutilities.amethyst_tiles": "紫水晶瓦",
+  "block.createutilities.small_amethyst_tiles": "紫水晶小瓦",
 
   "item.createutilities.void_steel_ingot": "虚空钢锭",
   "item.createutilities.void_steel_sheet": "虚空钢板",
