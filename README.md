@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="logo.png" alt="Create Utilities Logo">
+    <img src="logo.png" alt="Create Utilities Logo" height="260">
 </div>
 <div align="center">
     <a href="https://modrinth.com/mod/create-utilities"><img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/create-utilities?style=for-the-badge&logo=modrinth&label=Modrinth"></a>
